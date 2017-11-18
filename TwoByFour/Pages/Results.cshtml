@@ -1,0 +1,21 @@
+﻿@page
+@model ResultsModel
+@{
+    ViewData["Title"] = "Results";
+}
+
+<form method="post">
+
+    <h2>@ViewData["Title"]</h2>
+    @for (int index = 0; index < Model.ResultEvaluations.Count; index++)
+    {
+        var singleResultEval = Model.ResultEvaluations[index];
+        <h2>
+            @Html.CheckBoxFor(model => model.ResultEvaluations[index].IsCorrect, new { @style = "zoom:1.8" })
+            @Html.HiddenFor(model => model.ResultEvaluations[index].Result)
+            @singleResultEval.Result
+        </h2>
+    }
+
+    <button type="submit">Finished</button>
+</form>
