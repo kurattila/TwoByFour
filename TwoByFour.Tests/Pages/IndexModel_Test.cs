@@ -44,5 +44,27 @@ namespace TwoByFour.Tests.Pages
             // assert
             mockCourse.Verify(c => c.SetAlreadySeen(dummyMult));
         }
+
+        [Fact]
+        public void Ordinal_Of_CurrentChallenge()
+        {
+            // arrange
+            var stubCourse = new Mock<ITrainingCourse>();
+            stubCourse
+                .Setup(c => c.AlreadySeenChallenges)
+                .Returns(new[] {new Multiplication()});
+            var dummyMult = new Multiplication { BaseNumber = 3, Multiplier = 4 };
+            var mockSmartFactory = new Mock<IMultiplicationSmartFactory>();
+            mockSmartFactory
+                .Setup(f => f.CreateMultiplication())
+                .Returns(dummyMult);
+            var sut = new IndexModel(stubCourse.Object, mockSmartFactory.Object);
+
+            // act
+            sut.OnGet();
+
+            // assert
+            Assert.Equal(1, sut.OrdinalOfCurrentChallenge);
+        }
     }
 }

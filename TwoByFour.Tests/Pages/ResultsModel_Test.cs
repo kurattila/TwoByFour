@@ -60,6 +60,43 @@ namespace TwoByFour.Pages.Tests
         }
 
         [Fact]
+        public void Get_OffersResults_RatherThanNewSession()
+        {
+            // arrange
+            var mults = new Multiplication[]{};
+            var mockCourse = new Mock<ITrainingCourse>();
+            mockCourse
+                .Setup(c => c.AlreadySeenChallenges)
+                .Returns(mults);
+            var sut = new ResultsModel(mockCourse.Object);
+
+            // act
+            sut.OnGet();
+
+            // assert
+            Assert.False(sut.OfferNewSession);
+        }
+
+        [Fact]
+        public void PostResults_OffersNewSession()
+        {
+            // arrange
+            var mults = new Multiplication[]{};
+            var mockCourse = new Mock<ITrainingCourse>();
+            mockCourse
+                .Setup(c => c.AlreadySeenChallenges)
+                .Returns(mults);
+            var sut = new ResultsModel(mockCourse.Object);
+
+            // act
+            sut.OnGet();
+            sut.OnPost();
+
+            // assert
+            Assert.True(sut.OfferNewSession);
+        }
+
+        [Fact]
         public void Post_StartsNewSession()
         {
             // arrange
@@ -116,6 +153,23 @@ namespace TwoByFour.Pages.Tests
             // assert
             mockCourse.Verify(c => c.SetNeedsMoreLearning(new Multiplication { BaseNumber = 4, Multiplier = 5 }));
             mockCourse.Verify(c => c.SetNeedsMoreLearning(new Multiplication { BaseNumber = 6, Multiplier = 7 }));
+        }
+
+        [Fact]
+        public void OnFinished_RedirectsToNewSession()
+        {
+            // arrange
+            var dummyCourse = new Mock<ITrainingCourse>();
+            var sut = new ResultsModel(dummyCourse.Object);
+
+            // act
+            sut.OnGet();
+            sut.OnPost();
+            var result = sut.OnPostNewSession();
+
+            // assert
+            Assert.IsType<RedirectToPageResult>(result);
+            Assert.Equal("/Index", (result as RedirectToPageResult)?.PageName);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@page
-@model ResultsModel
+@using TwoByFour.Pages
+@model TwoByFour.Pages.ResultsModel
 @{
     ViewData["Title"] = "Results";
 }
@@ -13,9 +14,17 @@
         <h2>
             @Html.CheckBoxFor(model => model.ResultEvaluations[index].IsCorrect, new { @style = "zoom:1.8" })
             @Html.HiddenFor(model => model.ResultEvaluations[index].Result)
+            @Html.Raw($"{index+1}:")
             @singleResultEval.Result
         </h2>
     }
-
-    <button type="submit">Finished</button>
+    
+    @if (!Model.OfferNewSession)
+    {
+        <button type="submit">Finished</button>
+    }
+    else
+    {
+        <button type="submit" asp-page-handler="NewSession">Start New Session!</button>
+    }
 </form>

@@ -23,6 +23,9 @@ namespace TwoByFour.Pages
         [BindProperty]
         public List<SingleResultEvaluation> ResultEvaluations { get; set; }
 
+        [TempData]
+        public bool OfferNewSession { get; set; }
+
         public void OnGet()
         {
             ResultEvaluations = new List<SingleResultEvaluation>();
@@ -46,7 +49,13 @@ namespace TwoByFour.Pages
             }
 
             _course.StartNewSession();
+            OfferNewSession = true;
             return RedirectToPage("/Results");
+        }
+
+        public IActionResult OnPostNewSession()
+        {
+            return RedirectToPage("/Index");
         }
     }
 }

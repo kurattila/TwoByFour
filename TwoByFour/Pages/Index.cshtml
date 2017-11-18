@@ -4,7 +4,9 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>@Model.ChallengeText</h1>
+<h1>
+    @Model.OrdinalOfCurrentChallenge: @Model.ChallengeText
+</h1>
 
 <form method="post">
     <button type="submit">Next</button>

@@ -5,14 +5,16 @@ namespace TwoByFour.Pages
 {
     public class IndexModel : PageModel
     {
-        ITrainingCourse _course;
-        IMultiplicationSmartFactory _multiplicationSmartFactory;
+        readonly ITrainingCourse _course;
+        readonly IMultiplicationSmartFactory _multiplicationSmartFactory;
 
         public IndexModel(ITrainingCourse course, IMultiplicationSmartFactory multiplicationSmartFactory)
         {
             _course = course;
             _multiplicationSmartFactory = multiplicationSmartFactory;
         }
+
+        public int OrdinalOfCurrentChallenge => _course.AlreadySeenChallenges.Length;
 
         public string ChallengeText { get; set; }
 
