@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using TwoByFour.MultiplicationTable;
 using TwoByFour.Utils;
 
-namespace Szorzotabla
+namespace TwoByFour
 {
     public class Startup
     {

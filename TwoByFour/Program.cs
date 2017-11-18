@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("TwoByFour.Tests")]
 
-namespace Szorzotabla
+namespace TwoByFour
 {
     public class Program
     {
