@@ -1,0 +1,14 @@
+﻿@page
+@model TwoByFour.Pages.NeedsMoreLearningModel
+@{
+    ViewData["Title"] = "Needs more learning";
+}
+
+<h2>These need more learning and repeating:</h2>
+
+@foreach (var item in Model.Items)
+{
+    <h2>
+        @item.TextualChallenge
+    </h2>
+}
