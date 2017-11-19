@@ -51,5 +51,39 @@ namespace TwoByFour.Tests.MultiplicationTable
             // assert
             Assert.Contains(mult2, set);
         }
+
+        [Fact]
+        public void TextualChallenge()
+        {
+            // arrange
+            var sut = new Multiplication
+            {
+                BaseNumber = 4,
+                Multiplier = 6
+            };
+
+            // act
+            var textualResult = sut.TextualChallenge;
+
+            // assert
+            Assert.Equal("6 x 4 = ?", textualResult);
+        }
+
+        [Fact]
+        public void TextualResult()
+        {
+            // arrange
+            var sut = new Multiplication
+            {
+                BaseNumber = 4,
+                Multiplier = 6
+            };
+
+            // act
+            var textualResult = sut.TextualResult;
+
+            // assert
+            Assert.Equal("6 x 4 = 24", textualResult);
+        }
     }
 }

@@ -5,8 +5,8 @@ namespace TwoByFour.MultiplicationTable
     {
         public int BaseNumber { get; set; }
         public int Multiplier { get; set; }
-        public string TextualChallenge => $"{BaseNumber} x {Multiplier} = ?";
-        public string TextualResult    => $"{BaseNumber} x {Multiplier} = {BaseNumber*Multiplier}";
+        public string TextualChallenge => $"{Multiplier} x {BaseNumber} = ?";
+        public string TextualResult    => $"{Multiplier} x {BaseNumber} = {BaseNumber*Multiplier}";
 
         public override bool Equals(object other)
         {
