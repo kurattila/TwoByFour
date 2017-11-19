@@ -46,7 +46,7 @@ namespace TwoByFour.Tests.MultiplicationTable
             sut.SetNeedsMoreLearning(new Multiplication { BaseNumber = 4, Multiplier = 5 });
 
             // assert
-            Assert.Equal(1, sut.NeedMoreLearningChallenges.Length);
+            Assert.Single(sut.NeedMoreLearningChallenges);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace TwoByFour.Tests.MultiplicationTable
             sut.StartNewSession();
 
             // assert
-            Assert.Equal(1, sut.NeedMoreLearningChallenges.Length);
+            Assert.Single(sut.NeedMoreLearningChallenges);
         }
     }
 }

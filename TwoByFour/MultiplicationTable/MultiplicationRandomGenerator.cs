@@ -18,11 +18,6 @@ namespace TwoByFour.MultiplicationTable
             _randomWrapper = randomWrapper;
         }
 
-        public void SetMultiplicationsToUse(int[] multiplicationBasesToUse)
-        {
-            _multiplicationBasesToUse = multiplicationBasesToUse;
-        }
-
         public void Init(int[] multiplicationBasesToUse)
         {
             _multiplicationBasesToUse = multiplicationBasesToUse;

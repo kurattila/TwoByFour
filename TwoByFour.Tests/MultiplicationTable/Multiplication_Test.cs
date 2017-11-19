@@ -26,7 +26,7 @@ namespace TwoByFour.Tests.MultiplicationTable
             set.Add(mult1);
 
             // assert
-            Assert.False(set.Contains(mult2));
+            Assert.DoesNotContain(mult2, set);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace TwoByFour.Tests.MultiplicationTable
             set.Add(mult1);
 
             // assert
-            Assert.True(set.Contains(mult2));
+            Assert.Contains(mult2, set);
         }
     }
 }

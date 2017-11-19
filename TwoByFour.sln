@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoByFour", "TwoByFour\TwoByFour.csproj", "{91AFBB0F-60E8-4518-B137-BF3DB0F3B1D4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoByFour.Tests", "TwoByFour.Tests\TwoByFour.Tests.csproj", "{B3338032-68D0-4A36-95DE-266DB85FC3CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FEFF48CD-B31D-410C-8238-86C6E6821321}"
+	ProjectSection(SolutionItems) = preProject
+		GenerateUnitTestMetrics.bat = GenerateUnitTestMetrics.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
