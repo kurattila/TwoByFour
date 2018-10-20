@@ -20,10 +20,9 @@ namespace TwoByFour.Tests.MultiplicationTable
                 BaseNumber = 5,
                 Multiplier = 7
             };
-            var set = new HashSet<Multiplication>();
+            var set = new HashSet<Multiplication> {mult1};
 
             // act
-            set.Add(mult1);
 
             // assert
             Assert.DoesNotContain(mult2, set);
@@ -43,10 +42,11 @@ namespace TwoByFour.Tests.MultiplicationTable
                 BaseNumber = 2,
                 Multiplier = 4
             };
-            var set = new HashSet<Multiplication>();
-
-            // act
-            set.Add(mult1);
+            var set = new HashSet<Multiplication>
+            {
+                // act
+                mult1
+            };
 
             // assert
             Assert.Contains(mult2, set);
